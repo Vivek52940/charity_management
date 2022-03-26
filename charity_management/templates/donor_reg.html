@@ -1,0 +1,116 @@
+{% load static %}
+
+<html>
+<head>
+    <title>
+        Donor Registration
+    </title>
+
+    <script>
+        function checkpassword()
+        {
+           if(document.signup.pwd.value!=document.signup.cpwd.value)
+           {
+             alert('Password and Confirm Password field does not match');
+             document.signup.cpwd.focus();
+             return false;
+           }
+
+           return true;
+        }
+    </script>
+</head>
+<body>
+{% include 'navigation.html' %}
+<hr class="mt=0">
+
+<div class="card shadow m-5">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom:2px solid orange">Create an Account (Donor) </h5>
+        <div class="container-fluid">
+            <form method="post" enctype="multipart/form-data" name="signup" onsubmit="return checkpassword()">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="firstname" class="form-control" placeholder="Enter First Name" required_pattern="[A-Za-z]+" required>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="lastname" class="form-control" placeholder="Enter Last Name" required_pattern="[A-Za-z]+" required>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Email ID</label>
+                            <input type="mail" name="email" class="form-control" placeholder="Email Address" required_pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Contact</label>
+                            <input type="text" name="contact" class="form-control" placeholder="Contact Number" required_pattern="[0-9]+">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="pwd" class="form-control" placeholder="Enter Password">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" name="cpwd" class="form-control" placeholder="Confirm Password">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Upload Photo</label>
+                            <input type="file" name="userpic" class="form-control" placeholder="Upload a photo" required>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Address</label>
+                            <textarea name="address" class="form-control" placeholder="Enter Full Address" required>
+                            </textarea>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+                <input type="submit" value="Submit" class="m-3 px-3 btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div>
+{% if error == "no" %}
+<script>
+    alert('Signup Successful');
+    window.location=('{% url 'donor_login' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Something went wrong , Try Again...');
+</script>
+{% endif %}
+</body>
+
+</html>

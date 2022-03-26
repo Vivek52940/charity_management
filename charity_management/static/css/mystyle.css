@@ -1,0 +1,70 @@
+/* Change Brand Font*/
+.navbar-brand{
+ font-family: 'Moon Dance', cursive;
+ font-size:35px;
+ font-weight:bold;
+}
+
+/* Change Navigation Color */
+
+.nav-link{
+ color: black !important;
+ font-size:20px;
+}
+
+.nav-link:hover{
+ color:green !important;
+ background-color:orange;
+ border-radius:30px;
+}
+.navbar{
+ background-color:#F3E5F5;
+}
+
+.carousel-control-prev-icon,.carousel-control-next-icon{
+  background:black;
+  color:black;
+}
+#footer a,#contact a{
+ color:#ee1d29;
+}
+
+#footer a:hover{
+ color:yellow;
+}
+#contact a:hover{
+ color:blue;
+}
+
+/*scroll button start */
+#scrollbtn{
+
+position:fixed;
+bottom:20px;
+right:40px;
+z-index:99;
+border:none;
+color:red;
+background:#00abff;
+padding:10px;
+border-radius:10px;
+}
+
+/*scroll button end */
+
+html{
+scroll-behavior:smooth;
+}
+
+/*login page css start */
+#login{
+background-size:100%;
+background-repeat:no-repeat;
+opacity:0.8;
+background-position:0px 80px;
+}
+
+#signup{
+background:url('/static/images/bg.jpg');
+color:white;
+}
